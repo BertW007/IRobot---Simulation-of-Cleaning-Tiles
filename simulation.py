@@ -205,9 +205,6 @@ def run_simulation(num_robots, speed, width, height, min_coverage, num_trials, r
     return int(sum(times) / num_trials)
 
 
-# print(run_simulation(1, 1.0, 5, 5, 1, 1, StandardRobot))
-# print(run_simulation(1, 1.0, 5, 5, 1, 1, RandomWalkRobot))
-
 def show_plot1(title, x_label, y_label):
     num_robot_range = range(1, 11)
     times1 = []
@@ -243,6 +240,9 @@ def show_plot2(title, x_label, y_label):
     pylab.ylabel(y_label)
     pylab.show()
     return aspect_ratios
+
+# print(run_simulation(1, 1.0, 5, 5, 1, 1, StandardRobot))
+# print(run_simulation(1, 1.0, 5, 5, 1, 1, RandomWalkRobot))
 
 # print(show_plot1('Time It Takes 1 - 10 Robots To Clean 80% Of A Room correct', 'Number of Robots', 'Time-steps'))
 # print(show_plot2('Time It Takes Two Robots To Clean 80% Of Variously Shaped Rooms', 'Aspect Ratio', 'Time-steps'))

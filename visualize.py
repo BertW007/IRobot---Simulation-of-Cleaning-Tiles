@@ -97,6 +97,7 @@ class RobotVisualization:
         self.text = self.w.create_text(25, 0, anchor=NW, text=self._status_string(self.time, room.getNumCleanedTiles()))
         self.master.update()
         time.sleep(self.delay)
+
     def done(self):
         # Indicate that the animation is done so that we allow the user to close the window.
         mainloop()
