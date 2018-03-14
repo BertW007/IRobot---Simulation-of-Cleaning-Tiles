@@ -1,11 +1,9 @@
 import math
-import time
-
 from tkinter import *
 
 
 class RobotVisualization:
-    def __init__(self, num_robots, width, height, delay = 0.2):
+    def __init__(self, num_robots, width, height, delay=0.2):
         # Number of seconds to pause after each frame
         self.delay = delay
 
@@ -23,7 +21,7 @@ class RobotVisualization:
         # Draw a backing and lines
         x1, y1 = self._map_coords(0, 0)
         x2, y2 = self._map_coords(width, height)
-        self.w.create_rectangle(x1, y1, x2, y2, fill = "white")
+        self.w.create_rectangle(x1, y1, x2, y2, fill="white")
         # Draw gray squares for dirty tiles
         self.tiles = {}
 
@@ -72,7 +70,7 @@ class RobotVisualization:
         return self.w.create_polygon([x1, y1, x2, y2, x3, y3], fill="red")
 
     def update(self, room, robots):
-        "Redraws the visualization with the specified room and robot state."
+        import time
         # Removes a gray square for any tiles have been cleaned.
         for i in range(self.width):
             for j in range(self.height):
@@ -90,8 +88,7 @@ class RobotVisualization:
             x, y = pos.getX(), pos.getY()
             x1, y1 = self._map_coords(x - 0.08, y - 0.08)
             x2, y2 = self._map_coords(x + 0.08, y + 0.08)
-            self.robots.append(self.w.create_oval(x1, y1, x2, y2,
-                                                  fill = "black"))
+            self.robots.append(self.w.create_oval(x1, y1, x2, y2, fill="black"))
             self.robots.append(
                 self._draw_robot(robot.getRobotPosition(), robot.getRobotDirection()))
         # Update text
@@ -100,7 +97,7 @@ class RobotVisualization:
         self.text = self.w.create_text(25, 0, anchor=NW, text=self._status_string(self.time, room.getNumCleanedTiles()))
         self.master.update()
         time.sleep(self.delay)
-    #
     def done(self):
-        "Indicate that the animation is done so that we allow the user to close the window."
+        # Indicate that the animation is done so that we allow the user to close the window.
         mainloop()
+
